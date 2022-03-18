@@ -1,17 +1,9 @@
-const dbConfig = require("../config/db-config.js");
+const dbmodule = require("../config/db-config");
+
+const config = dbmodule.config;
 
 const Sequelize = require("sequelize");
-const sequelize = new Sequelize(
-  dbConfig.database,
-  dbConfig.username,
-  dbConfig.password,
-  {
-    host: dbConfig.host,
-    port: dbConfig.port,
-    dialect: dbConfig.dialect,
-    define: dbConfig.define,
-  }
-);
+const sequelize = new Sequelize("LPAManpower", null, null, config);
 
 const db = {};
 
